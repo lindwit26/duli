@@ -1,9 +1,9 @@
 {
 	"profile": "order_mgmt_bot",
 	"bot-name": "order_mgmt_bot",
-	"bot-token": "1701329343:AAEBJap2vfXU4K3XxuEobYAGqUP3pkRbHGg",
+	"bot-token": "1527044583:AAEjSSm-ZhLXkEugeHccrqXw11_0JAw0JGU",
 	"bitcoinlib_HDWallet_name": "test",
-	"work_dir": "mgmt",
+	"work_dir": "tmp",
 	"package": "bronze",
 	"maximum_monthly_order_count": 1000,
 	"telegram_proxy": "http://23.108.46.130:12345",
