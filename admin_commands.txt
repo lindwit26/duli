@@ -1,0 +1,32 @@
+Admin Commands:
+Some commands require arguments to be surrounded by quotes. Arguments surrounded by paranthesis are not required
+/addadmin [uid] - add a user to admins. having over 3 admins is not recommended.
+/deladmin [uid] - remove a user from admins
+/setmainadmin [uid] - give an admin highest permissions including ability to add/delete other admins
+/admins - list all admins
+/addproduct "[title]" "[description]" "[img_url]" price_usd [quantity] ("[delivery link/code/etc (if digital product and delivery doesn't change)]") - add product to catalog, quantity of -1 is infinite. If the product is digital, but delivery changes, the delivery link/code/etc. will be provided by you via /verify. If the product isn't digital, customer will be prompted to provide whatever form of address you've specified in the product description. House address, email, etc. You can always deliver the product via /finish after payment is verified either manually or automatically.
+/delproduct [itemid] - delete a product from catalog with it's item id. pending/processing orders for this product will remain open
+/editproduct [itemid] "[title]" "[description]" "[img_url]" price_usd [quantity] ("[delivery link/code/etc (if digital product and delivery doesn't change)]") - Use dashes ("-") to leave that product attribute the same. Ex: /editproduct 123 - "new description" - - 100 "new delivery link". This command would leave the title, image url, and price the same while changing the description, quantity, and automatic delivery content.
+/broadcast "[message]" - broadcast message to all bot contacts. announce maintenance, etc. if the number of bot contacts is over the telegram message rate limit (30/second), it will prevent other messages from being sent until each contact has received the broadcast
+/verify [txid] ("[link/code]") - verify that you have received the payment for a transaction and optionally deliver the product if digital. otherwise, the user will get a message prompting them to provide a delivery address.
+/cancelorder - cancel any order
+/orderinfo [txid] - get information about an order (user id, item id, payment method, and quantity)
+/finish [txid] ([message]) - finally close an order after delivery. the message, if any, will be delivered to the customer and the order will be archived.
+/processing - view orders in processing (post payment verification)
+/editfaq [faq_number] "[Q]" "[A]" - edit a FAQ entry. Use a dash ("-") in place of the Q or A arguments to keep them the same. Ex: /editfaq 1 - "new answer" - edits the answer of the FAQ entry numbered 1 but not the question
+/addfaq "[Q]" "[A]" - add question and answer to FAQ
+/delfaq [faqID] - delete a QA pair from the FAQ with its FAQ number.
+/addblacklist [uid] [hours:min:sec] - blacklist user. 
+/rmblacklist [uid] - remove user from the blacklist
+/blacklist - view the blacklist
+/addpaymethod [name] [address] - add a payment method. the method must support some kind of transaction message/memo so that the customer can provide their order number and product id
+/delpaymethod [name] - delete a payment method
+/setmaxorders [num] - set maximum number of orders (including orders with verified payment) a user can have open at one time, default: 3. it is not recommended to change this number
+/delorder [txid]
+/viewticket [support_ticket_id] - view support ticket details
+/opensupports - displays all open support requests
+/openorders [uid] - view IDs of all open order a user has
+/resupport [support_ticket_id] - notify user who opened support request that they should look for a chat from your username for support. if responding to a refund request, if the payment was in bitcoin, you must make sure the transaction is now confirmed or, at the very least, that it was sent with a large enough miner fee to confirm in a reasonable amount of time. You can use /orderinfo to see the btc address they were given to use.
+/delsupport [support_ticket_id] - delete any support ticket
+/checkbalance - check your BTC wallet balance - slightly inaccurate
+/withdraw [address] ([fee]) - THIS CANNOT BE UNDONE! withdraw your balance to an address. this will automatically use recommended fees (from https://api.blockchain.info/mempool/fees) based on current BTC network activity if you do not pass an amount for a fee.
