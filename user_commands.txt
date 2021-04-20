@@ -1,0 +1,11 @@
+User Commands:
+Some commands require arguments to be surrounded by quotes
+/help - lists all commands and their functions
+/catalog - lists all products
+/order [itemID] [quantity] [method]
+/cancelorder [itemID] - cancel an order before you have paid for it. refunds, if any, are performed manually and only after payments are verified, or have confirmations if they are crypto.
+/faq - print FAQ
+/support "[summary message]" - summary message should be a maximum of 100 characters. open a support request which is relayed to all admins. this should be used as a last resort if it's a specific problem with your order and you haven't found the answer in the FAQ. please provide all relevant information
+/delticket [support_ticket_id] - delete your support ticket
+/addaddress [orderID] "[address]" - link an address, virtual or physical, to an order for delivery
+/openorders - view the IDs of all your open orders
